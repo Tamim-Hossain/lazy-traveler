@@ -1,0 +1,31 @@
+.home-md-7 {
+	display: flex;
+}
+.card-img {
+	height: 350px;
+	position: relative;
+	transition: 0.1s ease-in-out;
+}
+.card {
+	border: none !important;
+	width: 13rem;
+	margin: 10px;
+	cursor: pointer;
+}
+.card-img:hover {
+	border: 4px solid #ffc107 !important;
+	border-radius: 20px;
+}
+.cardActive {
+	border: 4px solid #ffc107 !important;
+	border-radius: 20px !important;
+}
+.card-title {
+	position: absolute;
+	left: 15px;
+	bottom: 30px;
+	color: #fff;
+}
+.card-body {
+	padding: 0 !important;
+}

@@ -1,0 +1,26 @@
+[
+	{
+		"id": 1,
+		"url": "coxs-bazar",
+		"placeName": "Cox's Bazar",
+		"img": "https://i.ibb.co/BsZCGgV/rectangle-1-optimized.png",
+		"shortDescription": "Cox's Bazar is a city, fishing port, tourism centre and district headquarters in southeastern Bangladesh. It is famous mostly for its long natural sandy beach, and it ...",
+		"fullDescription": "Cox’s Bazar is a town on the southeast coast of Bangladesh. It’s known for its very long, sandy beachfront, stretching from Sea Beach in the north to Kolatoli Beach in the south. Aggameda Khyang monastery is home to bronze statues and centuries-old Buddhist manuscripts. South of town, the tropical rainforest of Himchari National Park has waterfalls and many birds. North, sea turtles breed on nearby Sonadia Island."
+	},
+	{
+		"id": 2,
+		"url": "sreemangal",
+		"placeName": "Sreemangal",
+		"img": "https://i.ibb.co/8Dy0XNg/Sreemongol.png",
+		"shortDescription": "sreeemangol is a city, fishing port, tourism centre and district headquarters in southeastern Bangladesh. It is famous mostly for its long natural sandy beach, and it ...",
+		"fullDescription": "sreemangal is a town on the southeast coast of Bangladesh. It’s known for its very long, sandy beachfront, stretching from Sea Beach in the north to Kolatoli Beach in the south. Aggameda Khyang monastery is home to bronze statues and centuries-old Buddhist manuscripts. South of town, the tropical rainforest of Himchari National Park has waterfalls and many birds. North, sea turtles breed on nearby Sonadia Island."
+	},
+	{
+		"id": 3,
+		"url": "sundarban",
+		"placeName": "Sundarban",
+		"img": "https://i.ibb.co/Ssjbp0L/sundorbon.png",
+		"shortDescription": "sundorbon is a city, fishing port, tourism centre and district headquarters in southeastern Bangladesh. It is famous mostly for its long natural sandy beach, and it ...",
+		"fullDescription": "sundorban is a town on the southeast coast of Bangladesh. It’s known for its very long, sandy beachfront, stretching from Sea Beach in the north to Kolatoli Beach in the south. Aggameda Khyang monastery is home to bronze statues and centuries-old Buddhist manuscripts. South of town, the tropical rainforest of Himchari National Park has waterfalls and many birds. North, sea turtles breed on nearby Sonadia Island."
+	}
+]

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Button, Card, Col, Row } from "react-bootstrap";
-import { AiOutlineArrowRight } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import displayData from "../../fakeData/displayData.json";
 import "./Main.css";
@@ -25,7 +24,7 @@ const Main = () => {
 				<h1>{placeName}</h1>
 				<p>{shortDescription}</p>
 				<Button variant="warning" as={Link} to={`/booking/${url}`}>
-					Booking <AiOutlineArrowRight />
+					Booking &#187;
 				</Button>
 			</Col>
 			<Col md={7} className="home-md-7">

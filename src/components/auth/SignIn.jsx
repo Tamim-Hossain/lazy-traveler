@@ -50,12 +50,12 @@ const SignIn = () => {
 							required
 						/>
 					</Form.Group>
-					<Button variant="warning" type="submit" block>
+					<Button variant="warning" type="submit" block="true">
 						Sign In
 					</Button>
 					<p>
 						Don’t have an account?{" "}
-						<Link to="/register" className="text-warning text-decoration-none" block>
+						<Link to="/register" className="text-warning text-decoration-none">
 							Create an account
 						</Link>
 					</p>

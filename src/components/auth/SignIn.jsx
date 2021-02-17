@@ -9,7 +9,7 @@ const SignIn = () => {
 	const { register, handleSubmit } = useForm();
 
 	const handleForm = (data) => {
-		const { name, email, password } = data;
+		const { email, password } = data;
 		firebase
 			.auth()
 			.signInWithEmailAndPassword(email, password)
@@ -50,12 +50,12 @@ const SignIn = () => {
 							required
 						/>
 					</Form.Group>
-					<Button variant="warning" type="submit">
+					<Button variant="warning" type="submit" block>
 						Sign In
 					</Button>
 					<p>
 						Don’t have an account?{" "}
-						<Link to="/register" className="text-warning text-decoration-none">
+						<Link to="/register" className="text-warning text-decoration-none" block>
 							Create an account
 						</Link>
 					</p>

@@ -1,6 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/auth";
-import { Button, Col, Form, Row } from "react-bootstrap";
+import { Button, ButtonGroup, Col, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import Google from "./Google";
@@ -16,7 +16,8 @@ const SignUp = () => {
 			.then((userCredential) => {
 				// Signed in
 				var user = userCredential.user;
-				// ...
+				handleName(name);
+				console.log(user);
 			})
 			.catch((error) => {
 				var errorCode = error.code;
@@ -25,12 +26,34 @@ const SignUp = () => {
 			});
 	};
 
+	const handleName = (name) => {
+		const user = firebase.auth().currentUser;
+
+		user
+			.updateProfile({
+				displayName: name,
+			})
+			.then(() => {
+				// Update successful.
+			})
+			.catch((error) => {
+				// An error happened.
+			});
+	};
+
 	return (
 		<Row>
 			<Col md={12}>
 				<Form onSubmit={handleSubmit(handleForm)}>
 					<Form.Group controlId="Name">
-						<Form.Control type="text" ref={register} name="name" required />
+						<Form.Label>Name</Form.Label>
+						<Form.Control
+							type="text"
+							placeholder="Enter You Name..."
+							ref={register}
+							name="name"
+							required
+						/>
 					</Form.Group>
 					<Form.Group controlId="Email">
 						<Form.Label>Email</Form.Label>
@@ -52,7 +75,7 @@ const SignUp = () => {
 							required
 						/>
 					</Form.Group>
-					<Button variant="warning" type="submit">
+					<Button variant="warning" type="submit" block>
 						Register
 					</Button>
 					<p>

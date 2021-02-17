@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import displayData from "../../fakeData/displayData.json";
 
 const Booking = () => {
@@ -9,7 +9,6 @@ const Booking = () => {
 	const { url } = useParams();
 	const [fullDetails, setFullDetails] = useState({});
 	const { placeName, fullDescription } = fullDetails;
-	let history = useHistory();
 
 	const handleDetails = (detail) => {
 		const fullDetails = displayData.find((data) => data.url === detail);
@@ -21,7 +20,6 @@ const Booking = () => {
 	}, [url]);
 
 	const handleForm = (data) => {
-		history.push("/booking/hotel");
 		console.log(data);
 	};
 	return (

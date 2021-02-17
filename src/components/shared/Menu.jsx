@@ -1,11 +1,25 @@
 import { Button, Form, FormControl, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from "../../icon/logo.png";
+import firebase from "firebase/app";
+import "firebase/auth";
 
 const Menu = () => {
 	const logoStyle = {
 		height: " 56px",
 		width: "120.26119995117188px",
+	};
+
+	const handleSignOut = () => {
+		firebase
+			.auth()
+			.signOut()
+			.then(() => {
+				// Sign-out successful.
+			})
+			.catch((error) => {
+				// An error happened.
+			});
 	};
 	return (
 		<Navbar bg="light" expand="lg">
@@ -19,8 +33,15 @@ const Menu = () => {
 			</Form>
 			<Navbar.Collapse id="basic-navbar-nav">
 				<Nav className="ml-auto">
-					<Nav.Link href="#link">Link</Nav.Link>
-					<Button variant="warning" as={Link} to="sign-in">
+					<Nav.Link as={Link} to="/contact">
+						contact
+					</Nav.Link>
+					<Button
+						variant="warning"
+						as={Link}
+						to="/sign-in"
+						onClick={handleSignOut}
+					>
 						Sign In
 					</Button>
 				</Nav>

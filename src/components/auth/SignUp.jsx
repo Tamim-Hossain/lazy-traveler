@@ -5,24 +5,23 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import Google from "./Google";
 
-const SignIn = () => {
+const SignUp = () => {
 	const { register, handleSubmit } = useForm();
 
 	const handleForm = (data) => {
 		const { name, email, password } = data;
 		firebase
 			.auth()
-			.signInWithEmailAndPassword(email, password)
+			.createUserWithEmailAndPassword(email, password)
 			.then((userCredential) => {
 				// Signed in
 				var user = userCredential.user;
-				console.log(user);
 				// ...
 			})
 			.catch((error) => {
 				var errorCode = error.code;
 				var errorMessage = error.message;
-				console.log(errorMessage);
+				// ..
 			});
 	};
 
@@ -30,6 +29,9 @@ const SignIn = () => {
 		<Row>
 			<Col md={12}>
 				<Form onSubmit={handleSubmit(handleForm)}>
+					<Form.Group controlId="Name">
+						<Form.Control type="text" ref={register} name="name" required />
+					</Form.Group>
 					<Form.Group controlId="Email">
 						<Form.Label>Email</Form.Label>
 						<Form.Control
@@ -51,12 +53,12 @@ const SignIn = () => {
 						/>
 					</Form.Group>
 					<Button variant="warning" type="submit">
-						Sign In
+						Register
 					</Button>
 					<p>
-						Don’t have an account?{" "}
-						<Link to="/register" className="text-warning text-decoration-none">
-							Create an account
+						Already have an account?{" "}
+						<Link to="/sign-in" className="text-warning text-decoration-none">
+							Login
 						</Link>
 					</p>
 				</Form>
@@ -68,4 +70,4 @@ const SignIn = () => {
 	);
 };
 
-export default SignIn;
+export default SignUp;

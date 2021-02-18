@@ -2,6 +2,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import { useContext } from "react";
 import { Button } from "react-bootstrap";
+import { useHistory, useLocation } from "react-router-dom";
 import { UserContext } from "../../App";
 import firebaseConfig from "./firebaseConfig";
 
@@ -13,6 +14,9 @@ if (!firebase.app.length) {
 
 const Google = () => {
 	const [userInfo, setUseInfo] = useContext(UserContext);
+	let history = useHistory();
+	let location = useLocation();
+	let { from } = location.state || { from: { pathname: "/" } };
 
 	const handleGoogleSignIn = () => {
 		const googleProvider = new firebase.auth.GoogleAuthProvider();
@@ -27,6 +31,7 @@ const Google = () => {
 					name: displayName,
 					email,
 				});
+				history.replace(from);
 			})
 			.catch((error) => {
 				// console.log(error.message);

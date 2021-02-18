@@ -1,15 +1,15 @@
 import { useContext } from "react";
 import { Redirect, Route } from "react-router-dom";
-import UserContext from "../../App";
+import { UserContext } from "../../App";
 
 const PrivateRoute = ({ children, ...rest }) => {
 	const [userInfo] = useContext(UserContext);
-	const { isSingedIn } = userInfo;
+	const { isSignedIn } = userInfo;
 	return (
 		<Route
 			{...rest}
 			render={({ location }) =>
-				isSingedIn ? (
+				isSignedIn ? (
 					children
 				) : (
 					<Redirect

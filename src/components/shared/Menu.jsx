@@ -27,7 +27,7 @@ const Menu = () => {
 			});
 	};
 	return (
-		<Navbar bg="light" expand="lg">
+		<Navbar>
 			<Container>
 				<Navbar.Brand as={Link} to="/">
 					<img src={logo} alt="" style={logoStyle} />

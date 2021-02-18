@@ -3,13 +3,16 @@ import "firebase/auth";
 import { useContext } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { UserContext } from "../../App";
 import Google from "./Google";
 
 const SignIn = () => {
 	const { register, handleSubmit, errors } = useForm();
 	const [userInfo, setUserInfo] = useContext(UserContext);
+	let history = useHistory();
+	let location = useLocation();
+	let { from } = location.state || { from: { pathname: "/" } };
 
 	const handleForm = (data) => {
 		const { email, password } = data;
@@ -25,6 +28,7 @@ const SignIn = () => {
 					email,
 					password,
 				});
+				history.replace(from);
 			})
 			.catch((error) => {
 				// console.log(error.message);
@@ -32,9 +36,9 @@ const SignIn = () => {
 	};
 
 	return (
-		<Row className="w-50" style={{ margin: "0 auto" }}>
-			<Col md={12} className="pt-4">
-				<h2 className="font-weight-bold text-center">Sign In</h2>
+		<Row className="w-50 " style={{ margin: "0 auto" }}>
+			<Col md={12} className="mt-4 shadow bg-light rounded mb-3">
+				<h2 className="font-weight-bold text-center pt-2">Sign In</h2>
 				<hr />
 				<Form onSubmit={handleSubmit(handleForm)}>
 					<Form.Group controlId="Email">

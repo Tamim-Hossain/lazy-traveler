@@ -6,8 +6,8 @@ import "firebase/auth";
 
 const Menu = () => {
 	const logoStyle = {
-		height: " 56px",
-		width: "120.26119995117188px",
+		height: " 50px",
+		width: "120px",
 	};
 
 	const handleSignOut = () => {

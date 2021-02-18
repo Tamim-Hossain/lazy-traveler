@@ -1,12 +1,12 @@
 import firebase from "firebase/app";
 import "firebase/auth";
-import { Button, ButtonGroup, Col, Form, Row } from "react-bootstrap";
+import { Button, Col, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import Google from "./Google";
 
 const SignUp = () => {
-	const { register, handleSubmit } = useForm();
+	const { errors, register, handleSubmit } = useForm();
 
 	const handleForm = (data) => {
 		const { name, email, password } = data;
@@ -50,38 +50,44 @@ const SignUp = () => {
 						<Form.Control
 							type="text"
 							placeholder="Enter You Name..."
-							ref={register}
+							ref={register({ required: true })}
 							name="name"
-							required
 						/>
+						{errors.name && (
+							<span className="text-danger">Name is required.</span>
+						)}
 					</Form.Group>
 					<Form.Group controlId="Email">
 						<Form.Label>Email</Form.Label>
 						<Form.Control
 							type="email"
 							placeholder="Enter Your Email..."
-							ref={register}
+							ref={register({ required: true })}
 							name="email"
-							required
 						/>
+						{errors.email && (
+							<span className="text-danger">Email is required.</span>
+						)}
 					</Form.Group>
 					<Form.Group controlId="Password">
 						<Form.Label>Password</Form.Label>
 						<Form.Control
 							type="password"
 							placeholder="Enter Your Password..."
-							ref={register}
+							ref={register({ required: true })}
 							name="password"
-							required
 						/>
+						{errors.password && (
+							<span className="text-danger">Password is required.</span>
+						)}
 					</Form.Group>
 					<Button variant="warning" type="submit" block="true">
-						Register
+						Sign Up
 					</Button>
 					<p>
 						Already have an account?{" "}
 						<Link to="/sign-in" className="text-warning text-decoration-none">
-							Login
+							Sign In
 						</Link>
 					</p>
 				</Form>

@@ -1,7 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 import { useContext } from "react";
-import { Button, Col, Form, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../App";
@@ -32,8 +32,10 @@ const SignIn = () => {
 	};
 
 	return (
-		<Row>
-			<Col md={12}>
+		<Row className="w-50" style={{ margin: "0 auto" }}>
+			<Col md={12} className="pt-4">
+				<h2 className="font-weight-bold text-center">Sign In</h2>
+				<hr />
 				<Form onSubmit={handleSubmit(handleForm)}>
 					<Form.Group controlId="Email">
 						<Form.Label>Email</Form.Label>
@@ -59,10 +61,16 @@ const SignIn = () => {
 							<span className="text-danger">Password is required.</span>
 						)}
 					</Form.Group>
-					<Button variant="warning" type="submit" block="true">
+					<Button
+						variant="warning"
+						type="submit"
+						block="true"
+						className="w-50"
+						style={{ margin: "0 auto" }}
+					>
 						Sign In
 					</Button>
-					<p>
+					<p className="mt-3 text-center">
 						Don’t have an account?{" "}
 						<Link to="/sign-up" className="text-warning text-decoration-none">
 							Create a new account

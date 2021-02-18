@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Card, Col, Row } from "react-bootstrap";
+import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import displayData from "../../fakeData/displayData.json";
 import "./Main.css";
@@ -19,28 +19,37 @@ const Main = () => {
 		handleChange(2);
 	}, []);
 	return (
-		<Row>
-			<Col md={5}>
-				<h1>{placeName}</h1>
-				<p>{shortDescription}</p>
-				<Button variant="warning" as={Link} to={`/booking/${url}`}>
-					Booking &#187;
-				</Button>
-			</Col>
-			<Col md={7} className="home-md-7">
-				{displayData.map((hotel) => (
-					<Card key={hotel.id} onClick={() => handleChange(hotel.id)}>
-						<Card.Img
-							src={hotel.img}
-							className={hotel.img === img ? "cardActive" : ""}
-						/>
-						<Card.Body>
-							<Card.Title>{hotel.placeName}</Card.Title>
-						</Card.Body>
-					</Card>
-				))}
-			</Col>
-		</Row>
+		<Container fluid>
+			<Row className="d-flex align-items-center pt-5 mt-3">
+				<Col md={5} className="pl-5">
+					<h1 className="font-weight-bold text-uppercase">{placeName}</h1>
+					<p>{shortDescription}</p>
+					<Button
+						className="font-weight-bold px-4"
+						variant="warning"
+						as={Link}
+						to={`/booking/${url}`}
+					>
+						Start Booking &#187;
+					</Button>
+				</Col>
+				<Col md={7} className="home-md-7">
+					{displayData.map((hotel) => (
+						<Card key={hotel.id} onClick={() => handleChange(hotel.id)}>
+							<Card.Img
+								src={hotel.img}
+								className={hotel.img === img ? "cardActive" : ""}
+							/>
+							<Card.Body>
+								<Card.Title className="font-weight-bold btn-block w-75 text-white ">
+									{hotel.placeName}
+								</Card.Title>
+							</Card.Body>
+						</Card>
+					))}
+				</Col>
+			</Row>
+		</Container>
 	);
 };
 

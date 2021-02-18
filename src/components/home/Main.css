@@ -21,8 +21,11 @@
 .card-title {
 	position: absolute;
 	left: 15px;
-	bottom: 30px;
-	color: #fff;
+	bottom: 7px;
+	background: #0b121a !important;
+	padding: 10px;
+	opacity: 0.8 !important;
+	border-radius: 15px;
 }
 .card-body {
 	padding: 0 !important;

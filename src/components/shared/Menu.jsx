@@ -1,14 +1,14 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 import { useContext } from "react";
-import { Button, Nav, Navbar } from "react-bootstrap";
+import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../App";
 import logo from "../../icon/logo.png";
 
 const Menu = () => {
 	const [userInfo, setUserInfo] = useContext(UserContext);
-	const { isSignedIn } = userInfo;
+	const { name, isSignedIn } = userInfo;
 
 	const logoStyle = {
 		height: " 50px",
@@ -28,15 +28,19 @@ const Menu = () => {
 	};
 	return (
 		<Navbar bg="light" expand="lg">
-			<Navbar.Brand as={Link} to="/">
-				<img src={logo} alt="" style={logoStyle} />
-			</Navbar.Brand>
-			<Navbar.Toggle aria-controls="basic-navbar-nav" />
-			<Navbar.Collapse id="basic-navbar-nav">
-				<Nav className="ml-auto">
-					<Nav.Link as={Link} to="/contact">
-						contact
-					</Nav.Link>
+			<Container>
+				<Navbar.Brand as={Link} to="/">
+					<img src={logo} alt="" style={logoStyle} />
+				</Navbar.Brand>
+				{name && (
+					<Nav className="ml-auto">
+						Welcome,
+						<span className="font-weight-bold font-italic ml-1 text-success">
+							{name.split(" ")[0]}
+						</span>
+					</Nav>
+				)}
+				<Nav className="ml-5">
 					{isSignedIn ? (
 						<Button variant="warning" as={Link} to="/" onClick={handleSignOut}>
 							Sign Out
@@ -47,7 +51,7 @@ const Menu = () => {
 						</Button>
 					)}
 				</Nav>
-			</Navbar.Collapse>
+			</Container>
 		</Navbar>
 	);
 };

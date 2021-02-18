@@ -48,8 +48,10 @@ const SignUp = () => {
 	};
 
 	return (
-		<Row>
-			<Col md={12}>
+		<Row className="w-50" style={{ margin: "0 auto" }}>
+			<Col md={12} className="pt-4">
+				<h2 className="font-weight-bold text-center">Sign Up</h2>
+				<hr />
 				<Form onSubmit={handleSubmit(handleForm)}>
 					<Form.Group controlId="Name">
 						<Form.Label>Name</Form.Label>
@@ -87,10 +89,16 @@ const SignUp = () => {
 							<span className="text-danger">Password is required.</span>
 						)}
 					</Form.Group>
-					<Button variant="warning" type="submit" block="true">
+					<Button
+						variant="warning"
+						type="submit"
+						block="true"
+						className="w-50"
+						style={{ margin: "0 auto" }}
+					>
 						Sign Up
 					</Button>
-					<p>
+					<p className="mt-3 text-center">
 						Already have an account?{" "}
 						<Link to="/sign-in" className="text-warning text-decoration-none">
 							Sign In

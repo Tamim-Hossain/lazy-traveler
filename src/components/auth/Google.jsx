@@ -33,7 +33,13 @@ const Google = () => {
 			});
 	};
 	return (
-		<Button variant="warning" onClick={handleGoogleSignIn}>
+		<Button
+			className="mt-4 w-50"
+			block="true"
+			variant="warning"
+			onClick={handleGoogleSignIn}
+			style={{ margin: "0 auto" }}
+		>
 			Sign In with Google
 		</Button>
 	);

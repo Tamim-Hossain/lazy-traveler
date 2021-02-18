@@ -1,12 +1,15 @@
 import firebase from "firebase/app";
 import "firebase/auth";
+import { useContext } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../App";
 import Google from "./Google";
 
 const SignUp = () => {
 	const { errors, register, handleSubmit } = useForm();
+	const [userInfo, setUserInfo] = useContext(UserContext);
 
 	const handleForm = (data) => {
 		const { name, email, password } = data;
@@ -14,15 +17,18 @@ const SignUp = () => {
 			.auth()
 			.createUserWithEmailAndPassword(email, password)
 			.then((userCredential) => {
-				// Signed in
-				var user = userCredential.user;
+				const user = userCredential.user;
 				handleName(name);
-				console.log(user);
+				const { email } = user;
+				setUserInfo({
+					isSignedIn: true,
+					name,
+					email,
+					password,
+				});
 			})
 			.catch((error) => {
-				var errorCode = error.code;
-				var errorMessage = error.message;
-				// ..
+				// console.log(error.message);
 			});
 	};
 

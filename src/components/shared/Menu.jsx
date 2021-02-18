@@ -1,10 +1,15 @@
-import { Button, Form, FormControl, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import logo from "../../icon/logo.png";
 import firebase from "firebase/app";
 import "firebase/auth";
+import { useContext } from "react";
+import { Button, Nav, Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { UserContext } from "../../App";
+import logo from "../../icon/logo.png";
 
 const Menu = () => {
+	const [userInfo, setUserInfo] = useContext(UserContext);
+	const { isSignedIn } = userInfo;
+
 	const logoStyle = {
 		height: " 50px",
 		width: "120px",
@@ -15,7 +20,7 @@ const Menu = () => {
 			.auth()
 			.signOut()
 			.then(() => {
-				// Sign-out successful.
+				setUserInfo("");
 			})
 			.catch((error) => {
 				// An error happened.
@@ -27,23 +32,20 @@ const Menu = () => {
 				<img src={logo} alt="" style={logoStyle} />
 			</Navbar.Brand>
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
-			<Form inline>
-				<FormControl type="text" placeholder="Search" className="mr-sm-2" />
-				<Button variant="outline-success">Search</Button>
-			</Form>
 			<Navbar.Collapse id="basic-navbar-nav">
 				<Nav className="ml-auto">
 					<Nav.Link as={Link} to="/contact">
 						contact
 					</Nav.Link>
-					<Button
-						variant="warning"
-						as={Link}
-						to="/sign-in"
-						onClick={handleSignOut}
-					>
-						Sign In
-					</Button>
+					{isSignedIn ? (
+						<Button variant="warning" as={Link} to="/" onClick={handleSignOut}>
+							Sign Out
+						</Button>
+					) : (
+						<Button variant="warning" as={Link} to="/sign-in">
+							Sign In
+						</Button>
+					)}
 				</Nav>
 			</Navbar.Collapse>
 		</Navbar>

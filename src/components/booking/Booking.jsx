@@ -21,7 +21,7 @@ const Booking = () => {
 	}, [url]);
 
 	const handleForm = (data) => {
-		console.log(data);
+		// console.log(data);
 		history.push("/sign-in");
 	};
 	return (

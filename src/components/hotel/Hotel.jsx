@@ -1,6 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
 import hotelsData from "../../fakeData/hotelsData.json";
 import star from "../../icon/star.png";
+import Google from "../maps/Google";
 
 const Hotel = () => {
 	const img = { width: "270px", height: "185px" };
@@ -8,9 +9,10 @@ const Hotel = () => {
 
 	return (
 		<Container fluid>
-			<h2 className="ml-5 font-weight-bold mb-5">Stay in Cox’s Bazar</h2>
+			<h2 className="font-weight-bold text-center">Stay in Cox’s Bazar</h2>
+			<hr className="w-75" />
 			<Row>
-				<Col md={7}>
+				<Col md={8} className="mt-3">
 					{hotelsData.map((hotel) => (
 						<Row>
 							<Col md={5} className="mb-5 pl-5">
@@ -23,7 +25,7 @@ const Hotel = () => {
 							</Col>
 							<Col md={7}>
 								<h6>
-									<strong>{hotel.title}</strong>
+									<strong key={hotel.id}>{hotel.title}</strong>
 								</h6>
 								<p className="text-secondary">
 									{hotel.guests} guests, {hotel.bedrooms} bedrooms, {hotel.beds}{" "}
@@ -46,7 +48,9 @@ const Hotel = () => {
 						</Row>
 					))}
 				</Col>
-				<Col md={5}>map</Col>
+				<Col md={4}>
+					<Google />
+				</Col>
 			</Row>
 		</Container>
 	);

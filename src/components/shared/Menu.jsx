@@ -11,8 +11,8 @@ const Menu = () => {
 	const { name, isSignedIn } = userInfo;
 
 	const logoStyle = {
-		height: " 70px",
-		width: "110px",
+		height: " 80px",
+		width: "90px",
 	};
 
 	const handleSignOut = () => {
@@ -27,7 +27,7 @@ const Menu = () => {
 			});
 	};
 	return (
-		<Navbar>
+		<Navbar style={{ padding: "0" }}>
 			<Container>
 				<Navbar.Brand as={Link} to="/">
 					<img src={logo} alt="" style={logoStyle} />

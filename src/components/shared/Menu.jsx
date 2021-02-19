@@ -11,8 +11,8 @@ const Menu = () => {
 	const { name, isSignedIn } = userInfo;
 
 	const logoStyle = {
-		height: " 50px",
-		width: "120px",
+		height: " 70px",
+		width: "110px",
 	};
 
 	const handleSignOut = () => {

@@ -46,7 +46,7 @@ const Menu = () => {
 							Sign Out
 						</Button>
 					) : (
-						<Button variant="warning" as={Link} to="/sign-in">
+						<Button variant="danger" as={Link} to="/sign-in">
 							Sign In
 						</Button>
 					)}

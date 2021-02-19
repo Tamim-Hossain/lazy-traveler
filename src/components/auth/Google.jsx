@@ -41,11 +41,11 @@ const Google = () => {
 		<Button
 			className="mt-4 w-50"
 			block="true"
-			variant="warning"
+			variant="danger"
 			onClick={handleGoogleSignIn}
 			style={{ margin: "0 auto" }}
 		>
-			Sign In with Google
+			Continue with Google
 		</Button>
 	);
 };

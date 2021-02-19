@@ -80,12 +80,7 @@ const Booking = () => {
 								/>
 							</Form.Group>
 						</Form.Row>
-						<Button
-							className="font-weight-bold"
-							type="submit"
-							variant="warning"
-							block
-						>
+						<Button type="submit" variant="danger" block>
 							Continue Booking &#187;
 						</Button>
 					</Form>

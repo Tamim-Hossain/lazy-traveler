@@ -66,7 +66,7 @@ const SignUp = () => {
 							name="name"
 						/>
 						{errors.name && (
-							<span className="text-danger">Name is required.</span>
+							<span className="text-info">Name is required.</span>
 						)}
 					</Form.Group>
 					<Form.Group controlId="Email">
@@ -78,7 +78,7 @@ const SignUp = () => {
 							name="email"
 						/>
 						{errors.email && (
-							<span className="text-danger">Email is required.</span>
+							<span className="text-info">Email is required.</span>
 						)}
 					</Form.Group>
 					<Form.Group controlId="Password">
@@ -90,11 +90,11 @@ const SignUp = () => {
 							name="password"
 						/>
 						{errors.password && (
-							<span className="text-danger">Password is required.</span>
+							<span className="text-info">Password is required.</span>
 						)}
 					</Form.Group>
 					<Button
-						variant="warning"
+						variant="danger"
 						type="submit"
 						block="true"
 						className="w-50"
@@ -104,7 +104,7 @@ const SignUp = () => {
 					</Button>
 					<p className="mt-3 text-center">
 						Already have an account?{" "}
-						<Link to="/sign-in" className="text-warning text-decoration-none">
+						<Link to="/sign-in" className="text-danger text-decoration-none">
 							Sign In
 						</Link>
 					</p>

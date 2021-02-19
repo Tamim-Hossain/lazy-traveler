@@ -25,8 +25,8 @@ const Main = () => {
 					<h1 className="font-weight-bold text-uppercase">{placeName}</h1>
 					<p>{shortDescription}</p>
 					<Button
-						className="font-weight-bold px-4"
-						variant="warning"
+						className="px-4"
+						variant="danger"
 						as={Link}
 						to={`/booking/${url}`}
 					>

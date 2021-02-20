@@ -1,8 +1,11 @@
 import { createContext, useState } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import NoMatch from "./components/404/NoMatch";
 import SignIn from "./components/auth/SignIn";
 import SignUp from "./components/auth/SignUp";
 import Booking from "./components/booking/Booking";
+import Review from "./components/complete/Review";
+import Thanks from "./components/complete/Thanks";
 import Main from "./components/home/Main";
 import Hotel from "./components/hotel/Hotel";
 import PrivateRoute from "./components/private/PrivateRoute";
@@ -17,8 +20,12 @@ const App = () => {
 		email: "",
 		password: "",
 	});
+
+	const [bookingInfo, setBookingInfo] = useState();
 	return (
-		<UserContext.Provider value={[userInfo, setUserInfo]}>
+		<UserContext.Provider
+			value={[userInfo, setUserInfo, bookingInfo, setBookingInfo]}
+		>
 			<BrowserRouter>
 				<Menu />
 				<Switch>
@@ -29,7 +36,13 @@ const App = () => {
 					<PrivateRoute path="/hotel">
 						<Hotel />
 					</PrivateRoute>
-					<Route path="*" component={() => <h1>Not found</h1>} />
+					<PrivateRoute path="/review-booking">
+						<Review />
+					</PrivateRoute>
+					<PrivateRoute path="/complete">
+						<Thanks />
+					</PrivateRoute>
+					<Route path="*" component={NoMatch} />
 				</Switch>
 			</BrowserRouter>
 		</UserContext.Provider>

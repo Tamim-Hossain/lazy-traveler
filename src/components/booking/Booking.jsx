@@ -1,10 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useHistory, useParams } from "react-router-dom";
+import { UserContext } from "../../App";
 import displayData from "../../fakeData/displayData.json";
 
 const Booking = () => {
+	const [userInfo, setUserInfo, bookingInfo, setBookingInfo] = useContext(
+		UserContext
+	);
 	const { register, handleSubmit } = useForm();
 	const { url } = useParams();
 	const [fullDetails, setFullDetails] = useState({});
@@ -21,11 +25,12 @@ const Booking = () => {
 	}, [url]);
 
 	const handleForm = (data) => {
-		// console.log(data);
 		if (data) {
 			history.push("/hotel");
 		}
+		setBookingInfo(data);
 	};
+
 	return (
 		<Container fluid>
 			<Row className="d-flex align-items-center pt-5 mt-3">

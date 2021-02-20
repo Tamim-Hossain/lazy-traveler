@@ -13,7 +13,9 @@ if (!firebase.app.length) {
 }
 
 const Google = () => {
-	const [userInfo, setUseInfo] = useContext(UserContext);
+	const [userInfo, setUserInfo, bookingInfo, setBookingInfo] = useContext(
+		UserContext
+	);
 	let history = useHistory();
 	let location = useLocation();
 	let { from } = location.state || { from: { pathname: "/" } };
@@ -26,7 +28,7 @@ const Google = () => {
 			.then((result) => {
 				const user = result.user;
 				const { displayName, email } = user;
-				setUseInfo({
+				setUserInfo({
 					isSignedIn: true,
 					name: displayName,
 					email,

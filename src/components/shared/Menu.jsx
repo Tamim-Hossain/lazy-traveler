@@ -7,7 +7,9 @@ import { UserContext } from "../../App";
 import logo from "../../icon/logo.png";
 
 const Menu = () => {
-	const [userInfo, setUserInfo] = useContext(UserContext);
+	const [userInfo, setUserInfo, bookingInfo, setBookingInfo] = useContext(
+		UserContext
+	);
 	const { name, isSignedIn } = userInfo;
 
 	const logoStyle = {
@@ -21,6 +23,7 @@ const Menu = () => {
 			.signOut()
 			.then(() => {
 				setUserInfo("");
+				setBookingInfo("");
 			})
 			.catch((error) => {
 				// An error happened.

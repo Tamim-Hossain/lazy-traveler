@@ -8,8 +8,10 @@ import { UserContext } from "../../App";
 import Google from "./Google";
 
 const SignUp = () => {
+	const [userInfo, setUserInfo, bookingInfo, setBookingInfo] = useContext(
+		UserContext
+	);
 	const { errors, register, handleSubmit } = useForm();
-	const [userInfo, setUserInfo] = useContext(UserContext);
 	let history = useHistory();
 	let location = useLocation();
 	let { from } = location.state || { from: { pathname: "/" } };

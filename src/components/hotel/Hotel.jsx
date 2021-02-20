@@ -1,21 +1,30 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { useContext } from "react";
+import { Button, Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { UserContext } from "../../App";
 import hotelsData from "../../fakeData/hotelsData.json";
 import star from "../../icon/star.png";
 import Google from "../maps/Google";
 
 const Hotel = () => {
+	const [userInfo, setUserInfo, bookingInfo, setBookingInfo] = useContext(
+		UserContext
+	);
+
 	const img = { width: "270px", height: "185px" };
 	const rating = { height: "15px", width: " 16px" };
 
 	return (
 		<Container fluid>
-			<h2 className="font-weight-bold text-center">Stay in Cox’s Bazar</h2>
+			<h2 className="font-weight-bold text-center">
+				Stay in {bookingInfo.destination}
+			</h2>
 			<hr className="w-75" />
 			<Row>
 				<Col md={8} className="mt-3">
 					{hotelsData.map((hotel) => (
-						<Row>
-							<Col md={5} className="mb-5 pl-5">
+						<Row className="mb-5 pl-5">
+							<Col md={5}>
 								<img
 									src={hotel.img}
 									alt={hotel.title}
@@ -32,7 +41,6 @@ const Hotel = () => {
 									beds, {hotel.baths} baths
 								</p>
 								<p className="text-secondary">{hotel.facility}</p>
-								<p className="text-secondary">{hotel.others}</p>
 								<p>
 									<strong>
 										{" "}
@@ -44,6 +52,14 @@ const Hotel = () => {
 										<strong>{hotel.totalCost}</strong> total
 									</span>
 								</p>
+								<Button
+									variant="danger"
+									className="px-4"
+									as={Link}
+									to="/review-booking"
+								>
+									Book Now &#187;
+								</Button>
 							</Col>
 						</Row>
 					))}

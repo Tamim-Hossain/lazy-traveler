@@ -39,7 +39,7 @@ const Google = () => {
 	};
 	return (
 		<Button
-			className="mt-4 w-50"
+			className="mt-4 w-50 mb-5"
 			block="true"
 			variant="danger"
 			onClick={handleGoogleSignIn}

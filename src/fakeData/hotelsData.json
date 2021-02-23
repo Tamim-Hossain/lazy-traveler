@@ -3,15 +3,15 @@
 		"id": 1,
 		"img": "https://i.ibb.co/fXXbmCH/Rectangle-26.png",
 		"title": "Light bright airy stylish apt & safe peaceful stay",
-		"guests": 4,
+		"guests": 3,
 		"bedrooms": 2,
 		"beds": 2,
 		"baths": 2,
 		"facility": "Wi-fi, Air conditioning, Kitchen",
-		"rating": 4.9,
-		"totalRating": 20,
-		"cost": 34,
-		"totalCost": 167
+		"rating": 4.7,
+		"totalRating": 29,
+		"cost": 39,
+		"totalCost": 269
 	},
 	{
 		"id": 2,
@@ -23,9 +23,9 @@
 		"baths": 2,
 		"facility": "Wi-fi, Air conditioning, Kitchen",
 		"rating": 4.9,
-		"totalRating": 20,
-		"cost": 52,
-		"totalCost": 291
+		"totalRating": 38,
+		"cost": 72,
+		"totalCost": 390
 	},
 	{
 		"id": 3,
@@ -36,9 +36,9 @@
 		"beds": 2,
 		"baths": 2,
 		"facility": "Wi-fi, Air conditioning, Kitchen",
-		"rating": 4.9,
-		"totalRating": 20,
+		"rating": 4.8,
+		"totalRating": 22,
 		"cost": 44,
-		"totalCost": 210
+		"totalCost": 350
 	}
 ]

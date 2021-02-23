@@ -1387,7 +1387,7 @@
   resolved "https://registry.yarnpkg.com/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.4.1.tgz#600f2275ff54739ad5ac0102f1467b8963cd5f71"
   integrity sha512-0yPjzuzGMkW1GkrC8yWsiN7vt1OzkMIi9HgxRmKREZl2wnNPOKo/yScTjXf/O57HM8dltqxPF6jlNLFVtc2qdw==
 
-"@googlemaps/js-api-loader@^1.7.0":
+"@googlemaps/js-api-loader@1.11.1":
   version "1.11.1"
   resolved "https://registry.yarnpkg.com/@googlemaps/js-api-loader/-/js-api-loader-1.11.1.tgz#b7f02c04d8d8602fb4bd873b03685fccefce1c6f"
   integrity sha512-2ug4uBu0onRXTAo7Yxkay5N7pdNIz3XpTElMTLdCtEfQDxikbjeR6GS8atVhblX+ubFBNlXvDzz7VtuXv0vMRQ==
@@ -1630,11 +1630,6 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@mapbox/point-geometry@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@mapbox/point-geometry/-/point-geometry-0.1.0.tgz#8a83f9335c7860effa2eeeca254332aa0aeed8f2"
-  integrity sha1-ioP5M1x4YO/6Lu7KJUMyqgru2PI=
-
 "@nodelib/fs.scandir@2.1.4":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.4.tgz#d4b3549a5db5de2683e0c1071ab4f140904bbf69"
@@ -1733,6 +1728,26 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
+
+"@react-google-maps/api@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@react-google-maps/api/-/api-2.1.1.tgz#0d195632927c72867b0cfcfec7eaef4b79f3bacc"
+  integrity sha512-Z/dcaDDfZD4DFnE1GhdHOIFHZ+VocEt6Ixe82f0f9tL/J0CZBQvfJ3V8RogY9fVraxdKIwnQx75U0O1JVqqBnw==
+  dependencies:
+    "@googlemaps/js-api-loader" "1.11.1"
+    "@react-google-maps/infobox" "2.1.1"
+    "@react-google-maps/marker-clusterer" "2.1.1"
+    invariant "2.2.4"
+
+"@react-google-maps/infobox@2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@react-google-maps/infobox/-/infobox-2.1.1.tgz#1d2f20f00725f087edc031c3291fcc4c08edae7c"
+  integrity sha512-x/+Td4Wsw+ziEcLjgQketCphuueLZ4vQLFkLrUBVzsHj4as4at79GsdVwoAdKIkBc5BDYJZw3ZGSr/SnWSObeg==
+
+"@react-google-maps/marker-clusterer@2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@react-google-maps/marker-clusterer/-/marker-clusterer-2.1.1.tgz#fa6cdcbbfee6a529a4d60b1575168a7aa1fedf91"
+  integrity sha512-LIqf1T2dVXRaf/gqk/7kEDpRvr1aQGlqOv/p5zwZus3qI6/3qK4jxNpc89gQ2WkCMrGwcI/fTQrnI55BZCxsLA==
 
 "@restart/context@^2.1.4":
   version "2.1.4"
@@ -5066,7 +5081,7 @@ event-target-shim@^5.0.0:
   resolved "https://registry.yarnpkg.com/event-target-shim/-/event-target-shim-5.0.1.tgz#5d4d3ebdf9583d63a5333ce2deb7480ab2b05789"
   integrity sha512-i/2XbnSz/uxRCU6+NdVJgKWDTM427+MqYbkQzD321DuCQJUqOuJKIA0IM2+W2xtYHdKOmZ4dR6fExsd4SXL+WQ==
 
-eventemitter3@^4.0.0, eventemitter3@^4.0.4:
+eventemitter3@^4.0.0:
   version "4.0.7"
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-4.0.7.tgz#2de9b68f6528d5644ef5c59526a1b4a07306169f"
   integrity sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==
@@ -5766,16 +5781,6 @@ google-auth-library@^6.1.1:
     jws "^4.0.0"
     lru-cache "^6.0.0"
 
-google-map-react@^2.1.9:
-  version "2.1.9"
-  resolved "https://registry.yarnpkg.com/google-map-react/-/google-map-react-2.1.9.tgz#6e539ce8bf28e7b8cda6058402e7581d1d1cec3d"
-  integrity sha512-//Pa0o6sdspU2H0ehVztSDQSnYYeV6TY4Z6ftty34yiCJYLliOzeq17dA9uFkyUFdL+XwbTU6e9mfs+bjBMIzw==
-  dependencies:
-    "@googlemaps/js-api-loader" "^1.7.0"
-    "@mapbox/point-geometry" "^0.1.0"
-    eventemitter3 "^4.0.4"
-    prop-types "^15.7.2"
-
 google-p12-pem@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/google-p12-pem/-/google-p12-pem-3.0.3.tgz#673ac3a75d3903a87f05878f3c75e06fc151669e"
@@ -6283,7 +6288,7 @@ internal-slot@^1.0.2:
     has "^1.0.3"
     side-channel "^1.0.4"
 
-invariant@^2.2.4:
+invariant@2.2.4, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==

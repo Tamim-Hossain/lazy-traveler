@@ -1,12 +1,20 @@
 import { useContext } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { UserContext } from "../../App";
 
 const Review = () => {
+	let history = useHistory();
 	const [userInfo, setUserInfo, bookingInfo, setBookingInfo] = useContext(
 		UserContext
 	);
+
+	const handleCancel = () => {
+		const confirm = window.confirm("Are you sure to cancel this session?");
+		if (confirm) {
+			history.push("/");
+		}
+	};
 
 	const { name, email } = userInfo;
 	const { origin, destination, fromDate, toDate } = bookingInfo;
@@ -22,8 +30,15 @@ const Review = () => {
 					<p>Destination: {destination}</p>
 					<p>From: {fromDate}</p>
 					<p>To: {toDate}</p>
-					<Button variant="danger" as={Link} to="/complete">
-						Complete Booking &#187;
+					<Button variant="success" as={Link} to="/complete" className="mt-3">
+						Confirm Booking &#187;
+					</Button>
+					<Button
+						onClick={handleCancel}
+						variant="warning"
+						className="mt-3 ml-5"
+					>
+						Cancel Booking &#187;
 					</Button>
 				</Col>
 			</Row>

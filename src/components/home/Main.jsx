@@ -16,7 +16,7 @@ const Main = () => {
 	};
 
 	useEffect(() => {
-		handleChange(2);
+		handleChange(Math.ceil(Math.random() * 3));
 	}, []);
 	return (
 		<Container fluid>

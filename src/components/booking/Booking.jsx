@@ -73,6 +73,7 @@ const Booking = () => {
 									required
 									ref={register}
 									name="fromDate"
+									placeholder="Select Date"
 								/>
 							</Form.Group>
 							<Form.Group as={Col} controlId="to">
@@ -82,6 +83,7 @@ const Booking = () => {
 									required
 									ref={register}
 									name="toDate"
+									placeholder="Select Date"
 								/>
 							</Form.Group>
 						</Form.Row>

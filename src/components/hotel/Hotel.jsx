@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../../App";
 import hotelsData from "../../fakeData/hotelsData.json";
 import star from "../../icon/star.png";
-import Google from "../maps/Google";
+import GoogleMaps from "../maps/GoogleMaps";
 
 const Hotel = () => {
 	const [userInfo, setUserInfo, bookingInfo, setBookingInfo] = useContext(
@@ -24,15 +24,15 @@ const Hotel = () => {
 				<Col md={8} className="mt-3">
 					{hotelsData.map((hotel) => (
 						<Row className="mb-5 pl-5">
-							<Col md={5}>
+							<div>
 								<img
 									src={hotel.img}
 									alt={hotel.title}
 									style={img}
 									key={hotel.id}
 								/>
-							</Col>
-							<Col md={7}>
+							</div>
+							<div className="ml-4">
 								<h6>
 									<strong key={hotel.id}>{hotel.title}</strong>
 								</h6>
@@ -60,12 +60,12 @@ const Hotel = () => {
 								>
 									Book Now &#187;
 								</Button>
-							</Col>
+							</div>
 						</Row>
 					))}
 				</Col>
 				<Col md={4}>
-					<Google />
+					<GoogleMaps />
 				</Col>
 			</Row>
 		</Container>

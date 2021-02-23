@@ -20,7 +20,7 @@ const Review = () => {
 	const { origin, destination, fromDate, toDate } = bookingInfo;
 	return (
 		<Container>
-			<Row className="bg-light p-5 shadow w-50" style={{ margin: "0 auto" }}>
+			<Row className="bg-light p-5 shadow w-75" style={{ margin: "0 auto" }}>
 				<Col md={12}>
 					<h2>Please Review Information</h2>
 					<hr />

@@ -7,38 +7,30 @@ import star from "../../icon/star.png";
 import GoogleMaps from "../maps/GoogleMaps";
 
 const Hotel = () => {
-	const [userInfo, setUserInfo, bookingInfo, setBookingInfo] = useContext(
-		UserContext
-	);
+	const [userInfo, setUserInfo, bookingInfo, setBookingInfo] = useContext(UserContext);
+	const { destination } = bookingInfo;
 
 	const img = { width: "270px", height: "185px" };
 	const rating = { height: "15px", width: " 16px" };
 
 	return (
 		<Container fluid>
-			<h2 className="font-weight-bold text-center">
-				Stay in {bookingInfo.destination}
-			</h2>
+			<h2 className="font-weight-bold text-center">Stay in {bookingInfo.destination}</h2>
 			<hr className="w-75" />
 			<Row>
 				<Col md={8} className="mt-3">
 					{hotelsData.map((hotel) => (
 						<Row className="mb-5 pl-5">
 							<div>
-								<img
-									src={hotel.img}
-									alt={hotel.title}
-									style={img}
-									key={hotel.id}
-								/>
+								<img src={hotel.img} alt={hotel.title} style={img} key={hotel.id} />
 							</div>
 							<div className="ml-4">
 								<h6>
 									<strong key={hotel.id}>{hotel.title}</strong>
 								</h6>
 								<p className="text-secondary">
-									{hotel.guests} guests, {hotel.bedrooms} bedrooms, {hotel.beds}{" "}
-									beds, {hotel.baths} baths
+									{hotel.guests} guests, {hotel.bedrooms} bedrooms, {hotel.beds} beds, {hotel.baths}{" "}
+									baths
 								</p>
 								<p className="text-secondary">{hotel.facility}</p>
 								<p>
@@ -52,12 +44,7 @@ const Hotel = () => {
 										<strong>{hotel.totalCost}</strong> total
 									</span>
 								</p>
-								<Button
-									variant="danger"
-									className="px-4"
-									as={Link}
-									to="/review-booking"
-								>
+								<Button variant="danger" className="px-4" as={Link} to="/review-booking">
 									Book Now &#187;
 								</Button>
 							</div>
@@ -65,7 +52,7 @@ const Hotel = () => {
 					))}
 				</Col>
 				<Col md={4}>
-					<GoogleMaps />
+					<GoogleMaps destination={destination} />
 				</Col>
 			</Row>
 		</Container>

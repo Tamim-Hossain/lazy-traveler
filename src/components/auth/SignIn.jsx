@@ -1,6 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/auth";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { Link, useHistory, useLocation } from "react-router-dom";
@@ -8,13 +8,15 @@ import { UserContext } from "../../App";
 import Google from "./Google";
 
 const SignIn = () => {
-	const [userInfo, setUserInfo, bookingInfo, setBookingInfo] = useContext(
-		UserContext
-	);
+	const [userInfo, setUserInfo, bookingInfo, setBookingInfo] = useContext(UserContext);
 	const { register, handleSubmit, errors } = useForm();
 	let history = useHistory();
 	let location = useLocation();
 	let { from } = location.state || { from: { pathname: "/" } };
+
+	useEffect(() => {
+		document.title = "Sign In | Lazy Traveler";
+	});
 
 	const handleForm = (data) => {
 		const { email, password } = data;
@@ -51,9 +53,7 @@ const SignIn = () => {
 							ref={register({ required: true })}
 							name="email"
 						/>{" "}
-						{errors.email && (
-							<span className="text-info">Email is required.</span>
-						)}
+						{errors.email && <span className="text-info">Email is required.</span>}
 					</Form.Group>
 					<Form.Group controlId="Password">
 						<Form.Label>Password</Form.Label>
@@ -63,9 +63,7 @@ const SignIn = () => {
 							ref={register({ required: true })}
 							name="password"
 						/>
-						{errors.password && (
-							<span className="text-info">Password is required.</span>
-						)}
+						{errors.password && <span className="text-info">Password is required.</span>}
 					</Form.Group>
 					<Button
 						variant="danger"

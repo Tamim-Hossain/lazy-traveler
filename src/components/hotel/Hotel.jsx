@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../App";
@@ -9,6 +9,10 @@ import GoogleMaps from "../maps/GoogleMaps";
 const Hotel = () => {
 	const [userInfo, setUserInfo, bookingInfo, setBookingInfo] = useContext(UserContext);
 	const { destination } = bookingInfo;
+
+	useEffect(() => {
+		document.title = "Hotel | Lazy Traveler";
+	});
 
 	const img = { width: "270px", height: "185px" };
 	const rating = { height: "15px", width: " 16px" };

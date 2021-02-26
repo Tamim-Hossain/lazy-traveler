@@ -6,9 +6,7 @@ import { UserContext } from "../../App";
 import displayData from "../../fakeData/displayData.json";
 
 const Booking = () => {
-	const [userInfo, setUserInfo, bookingInfo, setBookingInfo] = useContext(
-		UserContext
-	);
+	const [userInfo, setUserInfo, bookingInfo, setBookingInfo] = useContext(UserContext);
 	const { register, handleSubmit } = useForm();
 	const { url } = useParams();
 	const [fullDetails, setFullDetails] = useState({});
@@ -22,6 +20,7 @@ const Booking = () => {
 
 	useEffect(() => {
 		handleDetails(url);
+		document.title = "Booking | Lazy Traveler";
 	}, [url]);
 
 	const handleForm = (data) => {
@@ -35,9 +34,7 @@ const Booking = () => {
 		<Container fluid>
 			<Row className="d-flex align-items-center pt-5 mt-3">
 				<Col md={6} className="pl-5">
-					<h1 className="font-weight-bold text-uppercase display-4">
-						{placeName}
-					</h1>
+					<h1 className="font-weight-bold text-uppercase display-4">{placeName}</h1>
 					<p>{fullDescription}</p>
 				</Col>
 				<Col md={6} className="pr-5 pl-5">

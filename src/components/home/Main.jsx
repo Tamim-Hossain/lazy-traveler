@@ -9,14 +9,13 @@ const Main = () => {
 	const { placeName, shortDescription, url, img } = shortDetails;
 
 	const handleChange = (detailId) => {
-		const hotelDetails = displayData.find(
-			(detailInfo) => detailInfo.id === detailId
-		);
+		const hotelDetails = displayData.find((detailInfo) => detailInfo.id === detailId);
 		setShortDetails(hotelDetails || "");
 	};
 
 	useEffect(() => {
 		handleChange(Math.ceil(Math.random() * 3));
+		document.title = "Home | Lazy Traveler";
 	}, []);
 	return (
 		<Container fluid>
@@ -24,22 +23,14 @@ const Main = () => {
 				<Col md={5} className="pl-5">
 					<h1 className="font-weight-bold text-uppercase">{placeName}</h1>
 					<p>{shortDescription}</p>
-					<Button
-						className="px-4"
-						variant="danger"
-						as={Link}
-						to={`/booking/${url}`}
-					>
+					<Button className="px-4" variant="danger" as={Link} to={`/booking/${url}`}>
 						Start Booking &#187;
 					</Button>
 				</Col>
 				<Col md={7} className="home-md-7">
 					{displayData.map((hotel) => (
 						<Card key={hotel.id} onClick={() => handleChange(hotel.id)}>
-							<Card.Img
-								src={hotel.img}
-								className={hotel.img === img ? "cardActive" : ""}
-							/>
+							<Card.Img src={hotel.img} className={hotel.img === img ? "cardActive" : ""} />
 							<Card.Body>
 								<Card.Title className="font-weight-bold btn-block w-75 text-white ">
 									{hotel.placeName}

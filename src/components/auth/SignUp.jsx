@@ -1,6 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/auth";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { Link, useHistory, useLocation } from "react-router-dom";
@@ -8,13 +8,15 @@ import { UserContext } from "../../App";
 import Google from "./Google";
 
 const SignUp = () => {
-	const [userInfo, setUserInfo, bookingInfo, setBookingInfo] = useContext(
-		UserContext
-	);
+	const [userInfo, setUserInfo, bookingInfo, setBookingInfo] = useContext(UserContext);
 	const { errors, register, handleSubmit } = useForm();
 	let history = useHistory();
 	let location = useLocation();
 	let { from } = location.state || { from: { pathname: "/" } };
+
+	useEffect(() => {
+		document.title = "Sign Up | Lazy Traveler";
+	});
 
 	const handleForm = (data) => {
 		const { name, email, password } = data;
@@ -67,9 +69,7 @@ const SignUp = () => {
 							ref={register({ required: true })}
 							name="name"
 						/>
-						{errors.name && (
-							<span className="text-info">Name is required.</span>
-						)}
+						{errors.name && <span className="text-info">Name is required.</span>}
 					</Form.Group>
 					<Form.Group controlId="Email">
 						<Form.Label>Email</Form.Label>
@@ -79,9 +79,7 @@ const SignUp = () => {
 							ref={register({ required: true })}
 							name="email"
 						/>
-						{errors.email && (
-							<span className="text-info">Email is required.</span>
-						)}
+						{errors.email && <span className="text-info">Email is required.</span>}
 					</Form.Group>
 					<Form.Group controlId="Password">
 						<Form.Label>Password</Form.Label>
@@ -91,9 +89,7 @@ const SignUp = () => {
 							ref={register({ required: true })}
 							name="password"
 						/>
-						{errors.password && (
-							<span className="text-info">Password is required.</span>
-						)}
+						{errors.password && <span className="text-info">Password is required.</span>}
 					</Form.Group>
 					<Button
 						variant="danger"

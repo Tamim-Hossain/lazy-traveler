@@ -1,13 +1,11 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { UserContext } from "../../App";
 
 const Review = () => {
 	let history = useHistory();
-	const [userInfo, setUserInfo, bookingInfo, setBookingInfo] = useContext(
-		UserContext
-	);
+	const [userInfo, setUserInfo, bookingInfo, setBookingInfo] = useContext(UserContext);
 
 	const handleCancel = () => {
 		const confirm = window.confirm("Are you sure to cancel this session?");
@@ -15,6 +13,10 @@ const Review = () => {
 			history.push("/");
 		}
 	};
+
+	useEffect(() => {
+		document.title = "Review | Lazy Traveler";
+	});
 
 	const { name, email } = userInfo;
 	const { origin, destination, fromDate, toDate } = bookingInfo;
@@ -33,11 +35,7 @@ const Review = () => {
 					<Button variant="success" as={Link} to="/complete" className="mt-3">
 						Confirm Booking &#187;
 					</Button>
-					<Button
-						onClick={handleCancel}
-						variant="warning"
-						className="mt-3 ml-5"
-					>
+					<Button onClick={handleCancel} variant="warning" className="mt-3 ml-5">
 						Cancel Booking &#187;
 					</Button>
 				</Col>

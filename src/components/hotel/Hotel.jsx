@@ -7,7 +7,7 @@ import star from "../../icon/star.png";
 import GoogleMaps from "../maps/GoogleMaps";
 
 const Hotel = () => {
-	const [userInfo, setUserInfo, bookingInfo, setBookingInfo] = useContext(UserContext);
+	const [, , bookingInfo] = useContext(UserContext);
 	const { destination } = bookingInfo;
 
 	useEffect(() => {
@@ -33,8 +33,7 @@ const Hotel = () => {
 									<strong key={hotel.id}>{hotel.title}</strong>
 								</h6>
 								<p className="text-secondary">
-									{hotel.guests} guests, {hotel.bedrooms} bedrooms, {hotel.beds} beds, {hotel.baths}{" "}
-									baths
+									{hotel.guests} guests, {hotel.bedrooms} bedrooms, {hotel.beds} beds, {hotel.baths} baths
 								</p>
 								<p className="text-secondary">{hotel.facility}</p>
 								<p>

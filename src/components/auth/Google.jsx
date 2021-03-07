@@ -13,9 +13,7 @@ if (!firebase.app.length) {
 }
 
 const Google = () => {
-	const [userInfo, setUserInfo, bookingInfo, setBookingInfo] = useContext(
-		UserContext
-	);
+	const [, setUserInfo, ,] = useContext(UserContext);
 	let history = useHistory();
 	let location = useLocation();
 	let { from } = location.state || { from: { pathname: "/" } };

@@ -7,9 +7,7 @@ import { UserContext } from "../../App";
 import logo from "../../icon/logo.png";
 
 const Menu = () => {
-	const [userInfo, setUserInfo, bookingInfo, setBookingInfo] = useContext(
-		UserContext
-	);
+	const [userInfo, setUserInfo, , setBookingInfo] = useContext(UserContext);
 	const { name, isSignedIn } = userInfo;
 
 	const logoStyle = {
@@ -38,9 +36,7 @@ const Menu = () => {
 				{name && (
 					<Nav className="ml-auto">
 						Welcome,
-						<span className="font-weight-bold font-italic ml-1 text-success">
-							{name.split(" ")[0]}
-						</span>
+						<span className="font-weight-bold font-italic ml-1 text-success">{name.split(" ")[0]}</span>
 					</Nav>
 				)}
 				<Nav className="ml-5">

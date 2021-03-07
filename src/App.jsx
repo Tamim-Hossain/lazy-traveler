@@ -6,7 +6,6 @@ import SignIn from "./components/auth/SignIn";
 import SignUp from "./components/auth/SignUp";
 import Booking from "./components/booking/Booking";
 import Review from "./components/complete/Review";
-import Thanks from "./components/complete/Thanks";
 import Main from "./components/home/Main";
 import Hotel from "./components/hotel/Hotel";
 import Menu from "./components/shared/Menu";
@@ -36,9 +35,6 @@ const App = () => {
 					</PrivateRoute>
 					<PrivateRoute path="/review-booking">
 						<Review />
-					</PrivateRoute>
-					<PrivateRoute path="/complete">
-						<Thanks />
 					</PrivateRoute>
 					<Route path="*" component={NoMatch} />
 				</Switch>

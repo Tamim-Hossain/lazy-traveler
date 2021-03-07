@@ -6,7 +6,7 @@ import { UserContext } from "../../App";
 import displayData from "../../fakeData/displayData.json";
 
 const Booking = () => {
-	const [userInfo, setUserInfo, bookingInfo, setBookingInfo] = useContext(UserContext);
+	const [, , , setBookingInfo] = useContext(UserContext);
 	const { register, handleSubmit } = useForm();
 	const { url } = useParams();
 	const [fullDetails, setFullDetails] = useState({});
@@ -65,23 +65,11 @@ const Booking = () => {
 						<Form.Row>
 							<Form.Group as={Col} controlId="from">
 								<Form.Label>From</Form.Label>
-								<Form.Control
-									type="date"
-									required
-									ref={register}
-									name="fromDate"
-									placeholder="Select Date"
-								/>
+								<Form.Control type="date" required ref={register} name="fromDate" placeholder="Select Date" />
 							</Form.Group>
 							<Form.Group as={Col} controlId="to">
 								<Form.Label>To</Form.Label>
-								<Form.Control
-									type="date"
-									required
-									ref={register}
-									name="toDate"
-									placeholder="Select Date"
-								/>
+								<Form.Control type="date" required ref={register} name="toDate" placeholder="Select Date" />
 							</Form.Group>
 						</Form.Row>
 						<Button type="submit" variant="danger" block>

@@ -1,6 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/auth";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { Link, useHistory, useLocation } from "react-router-dom";
@@ -8,7 +8,8 @@ import { UserContext } from "../../App";
 import Google from "./Google";
 
 const SignUp = () => {
-	const [userInfo, setUserInfo, bookingInfo, setBookingInfo] = useContext(UserContext);
+	const [, setUserInfo, ,] = useContext(UserContext);
+	const [error, setError] = useState("");
 	const { errors, register, handleSubmit } = useForm();
 	let history = useHistory();
 	let location = useLocation();
@@ -33,10 +34,12 @@ const SignUp = () => {
 					email,
 					password,
 				});
+				setError("");
 				history.replace(from);
 			})
 			.catch((error) => {
-				// console.log(error.message);
+				setError(error.message);
+				console.log(error);
 			});
 	};
 
@@ -63,12 +66,7 @@ const SignUp = () => {
 				<Form onSubmit={handleSubmit(handleForm)}>
 					<Form.Group controlId="Name">
 						<Form.Label>Name</Form.Label>
-						<Form.Control
-							type="text"
-							placeholder="Enter You Name..."
-							ref={register({ required: true })}
-							name="name"
-						/>
+						<Form.Control type="text" placeholder="Enter You Name..." ref={register({ required: true })} name="name" />
 						{errors.name && <span className="text-info">Name is required.</span>}
 					</Form.Group>
 					<Form.Group controlId="Email">
@@ -91,13 +89,8 @@ const SignUp = () => {
 						/>
 						{errors.password && <span className="text-info">Password is required.</span>}
 					</Form.Group>
-					<Button
-						variant="danger"
-						type="submit"
-						block="true"
-						className="w-50"
-						style={{ margin: "0 auto" }}
-					>
+					{error && <p className="text-danger">{error}</p>}
+					<Button variant="danger" type="submit" block="true" className="w-50" style={{ margin: "0 auto" }}>
 						Sign Up
 					</Button>
 					<p className="mt-3 text-center">

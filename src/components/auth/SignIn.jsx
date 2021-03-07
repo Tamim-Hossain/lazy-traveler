@@ -1,6 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/auth";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { Link, useHistory, useLocation } from "react-router-dom";
@@ -8,7 +8,8 @@ import { UserContext } from "../../App";
 import Google from "./Google";
 
 const SignIn = () => {
-	const [userInfo, setUserInfo, bookingInfo, setBookingInfo] = useContext(UserContext);
+	const [, setUserInfo, ,] = useContext(UserContext);
+	const [error, setError] = useState("");
 	const { register, handleSubmit, errors } = useForm();
 	let history = useHistory();
 	let location = useLocation();
@@ -24,7 +25,7 @@ const SignIn = () => {
 			.auth()
 			.signInWithEmailAndPassword(email, password)
 			.then((userCredential) => {
-				var user = userCredential.user;
+				const user = userCredential.user;
 				const { email, password, displayName } = user;
 				setUserInfo({
 					isSignedIn: true,
@@ -32,10 +33,11 @@ const SignIn = () => {
 					email,
 					password,
 				});
+				setError("");
 				history.replace(from);
 			})
 			.catch((error) => {
-				// console.log(error.message);
+				setError(error.message);
 			});
 	};
 
@@ -65,13 +67,8 @@ const SignIn = () => {
 						/>
 						{errors.password && <span className="text-info">Password is required.</span>}
 					</Form.Group>
-					<Button
-						variant="danger"
-						type="submit"
-						block="true"
-						className="w-50"
-						style={{ margin: "0 auto" }}
-					>
+					{error && <p className="text-danger">{error}</p>}
+					<Button variant="danger" type="submit" block="true" className="w-50" style={{ margin: "0 auto" }}>
 						Sign In
 					</Button>
 					<p className="mt-3 text-center">

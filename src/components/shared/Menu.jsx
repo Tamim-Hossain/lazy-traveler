@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../App";
-import logo from "../../icon/logo.png";
+import logo from "../../images/logo.png";
 
 const Menu = () => {
 	const [userInfo, setUserInfo, , setBookingInfo] = useContext(UserContext);

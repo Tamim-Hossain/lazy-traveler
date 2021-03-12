@@ -3,7 +3,7 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../App";
 import hotelsData from "../../fakeData/hotelsData.json";
-import star from "../../icon/star.png";
+import star from "../../images/star.png";
 import GoogleMaps from "../maps/GoogleMaps";
 
 const Hotel = () => {

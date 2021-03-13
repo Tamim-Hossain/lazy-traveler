@@ -9,10 +9,7 @@ const NoMatch = () => {
 				src="https://image.freepik.com/free-vector/404-liquid-error_114341-59.jpg"
 				alt=""
 			/>
-			<Link
-				to="/"
-				className="display-4 d-flex justify-content-center text-danger"
-			>
+			<Link to="/" className="display-4 d-flex justify-content-center text-danger">
 				Back To Home
 			</Link>
 		</Container>

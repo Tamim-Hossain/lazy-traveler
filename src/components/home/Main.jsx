@@ -32,9 +32,7 @@ const Main = () => {
 						<Card key={hotel.id} onClick={() => handleChange(hotel.id)}>
 							<Card.Img src={hotel.img} className={hotel.img === img ? "cardActive" : ""} />
 							<Card.Body>
-								<Card.Title className="font-weight-bold btn-block w-75 text-white ">
-									{hotel.placeName}
-								</Card.Title>
+								<Card.Title className="font-weight-bold btn-block w-75 text-white ">{hotel.placeName}</Card.Title>
 							</Card.Body>
 						</Card>
 					))}
